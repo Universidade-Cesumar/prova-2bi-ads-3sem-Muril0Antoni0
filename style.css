@@ -1,1 +1,101 @@
-/* Caso queira utilizar framework como Bootstrap para estilização, pode utilizar. Basta ignoar esse arquivo */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background: #e6f0ff;
+    padding:30px;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+    background:white;
+    padding:20px;
+    border-radius:10px;
+}
+
+
+.formulario{
+    display:flex;
+    gap:10px;
+    margin-bottom:20px;
+}
+
+input{
+    flex:1;
+    padding:10px;
+}
+
+/* Deixa a cor do botão azul e define estilo base do botão */
+button{
+    padding:10px 20px;
+    cursor:pointer;
+    background:#007bff;
+    color:white;
+    border:none;
+    border-radius:6px;
+    transition:background 0.2s ease, transform 0.08s ease;
+}
+
+/* efeito ao passar o mouse no botão Cadastrar */
+#btn-cadastrar:hover{
+    background:#0056b3;
+    transform:translateY(-1px);
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th,
+td{
+    border:1px solid #ccc;
+    padding:10px;
+    text-align:center;
+}
+
+th{
+    background:#eee;
+}
+
+/* sombra no título da página */
+h1{
+    text-align:center;
+    margin-bottom:20px;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.15);
+}
+
+/* destaque para quantidade baixa */
+.low-qty{
+    color: #c0392b;
+    font-weight:600;
+}
+
+/* estilos para lista ordenada */
+.lista-materiais{
+    list-style: decimal;
+    margin-top:20px;
+    padding-left:20px;
+}
+
+.lista-materiais li{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    padding:10px;
+    border:1px solid #eee;
+    border-radius:6px;
+    margin-bottom:8px;
+    background:#fbfdff;
+    align-items:center;
+}
+
+.lista-materiais li span:first-child{
+    flex:1;
+    text-align:left;
+}
