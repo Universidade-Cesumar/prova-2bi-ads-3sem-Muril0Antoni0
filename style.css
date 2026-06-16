@@ -98,4 +98,8 @@ h1{
 .lista-materiais li span:first-child{
     flex:1;
     text-align:left;
+} 
+/*botao de retirada */
+.retirada{
+    margin-bottom:20px;
 }
