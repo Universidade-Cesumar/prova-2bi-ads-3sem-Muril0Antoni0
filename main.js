@@ -61,10 +61,13 @@ async function carregarMateriais() {
         <div class="acoes-item">
 
             <button
-                class="btn-baixar"
-                data-id="${material.id}">
-                Baixar
-            </button>
+    class="btn-baixar"
+    onclick="baixarMaterial(
+        '${material.id}',
+        ${material.quantidade}
+    )">
+    Baixar
+</button>
 
             <button
     class="btn-excluir"
@@ -200,11 +203,87 @@ async function excluirMaterial(id) {
 
         await carregarMateriais();
 
+        alert(
+            "Material excluído com sucesso!"
+        );
+
     }
     catch(error) {
 
         console.error(
             "Erro ao excluir material:",
+            error
+        );
+
+    }
+
+}
+/**
+ * Realiza a baixa de estoque.
+ * Atualiza a quantidade do material na MockAPI.
+ */
+async function baixarMaterial(
+    id,
+    estoqueAtual
+) {
+
+    const quantidadeRetirada =
+    Number(
+        document.getElementById(
+            "input-retirada"
+        ).value
+    );
+
+    if (
+        !validarRetirada(
+            estoqueAtual,
+            quantidadeRetirada
+        )
+    ) {
+
+        alert(
+            "Quantidade inválida."
+        );
+
+        return;
+    }
+
+    const novaQuantidade =
+    estoqueAtual -
+    quantidadeRetirada;
+
+    try {
+
+        await fetch(
+            `${API_URL}/${id}`,
+            {
+
+                method: "PUT",
+
+                headers: {
+                    "Content-Type":
+                    "application/json"
+                },
+
+                body: JSON.stringify({
+                    quantidade:
+                    novaQuantidade
+                })
+
+            }
+        );
+
+        document.getElementById(
+            "input-retirada"
+        ).value = "";
+
+        await carregarMateriais();
+
+    }
+    catch(error) {
+
+        console.error(
+            "Erro ao atualizar estoque:",
             error
         );
 
