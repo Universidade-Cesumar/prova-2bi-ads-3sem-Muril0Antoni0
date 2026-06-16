@@ -67,10 +67,12 @@ async function carregarMateriais() {
             </button>
 
             <button
-                class="btn-excluir"
-                data-id="${material.id}">
-                Excluir
-            </button>
+    class="btn-excluir"
+    onclick="excluirMaterial(
+        '${material.id}'
+    )">
+    Excluir
+</button>
 
         </div>
 
@@ -181,5 +183,33 @@ btnCadastrar.addEventListener(
     "click",
     cadastrarMaterial
 );
+/**
+ * Exclui um material do estoque.
+ * Remove o item da MockAPI e atualiza a lista.
+ */
+async function excluirMaterial(id) {
+
+    try {
+
+        await fetch(
+            `${API_URL}/${id}`,
+            {
+                method: "DELETE"
+            }
+        );
+
+        await carregarMateriais();
+
+    }
+    catch(error) {
+
+        console.error(
+            "Erro ao excluir material:",
+            error
+        );
+
+    }
+
+}
 
 window.onload = carregarMateriais;
