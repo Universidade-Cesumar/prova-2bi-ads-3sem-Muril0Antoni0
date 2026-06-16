@@ -15,9 +15,10 @@ document.getElementById("lista-materiais");
 
 /**
  * Carrega os materiais da API e exibe na lista.
- * - Busca os materiais com fetch
- * - Ordena por quantidade (do maior para o menor)
- * - Preenche a lista na página e aplica destaque para baixos estoques
+ * - Busca os materiais cadastrados
+ * - Ordena pela quantidade
+ * - Destaca estoques baixos
+ * - Cria os botões de baixa e exclusão
  */
 async function carregarMateriais() {
 
@@ -31,19 +32,50 @@ async function carregarMateriais() {
 
         listaMateriais.innerHTML = "";
 
-        // Ordena do maior para o menor pela propriedade 'quantidade'
-        materiais.sort((a, b) => b.quantidade - a.quantidade);
+        // Ordena do maior estoque para o menor
+        materiais.sort(
+            (a, b) =>
+            b.quantidade - a.quantidade
+        );
 
         materiais.forEach(material => {
 
-            const nomeClass = material.quantidade < 100 ? 'low-qty' : '';
+            // Destaca materiais com estoque baixo
+            const nomeClass =
+            material.quantidade < 100
+            ? "low-qty"
+            : "";
 
+            // Cria dinamicamente os botões de baixa e exclusão
             listaMateriais.innerHTML += `
-                <li>
-                    <span class="${nomeClass}">${material.nome}</span>
-                    <span>${material.quantidade}</span>
-                </li>
-            `;
+    <li>
+
+        <span class="${nomeClass} material-item">
+            ${material.nome}
+        </span>
+
+        <span class="quantidade-item">
+            ${material.quantidade}
+        </span>
+
+        <div class="acoes-item">
+
+            <button
+                class="btn-baixar"
+                data-id="${material.id}">
+                Baixar
+            </button>
+
+            <button
+                class="btn-excluir"
+                data-id="${material.id}">
+                Excluir
+            </button>
+
+        </div>
+
+    </li>
+`;
 
         });
 
@@ -61,9 +93,9 @@ async function carregarMateriais() {
 
 /**
  * Cadastra um novo material na API.
- * - Valida os campos de entrada
- * - Envia um POST para a API
- * - Atualiza a lista e mostra um alerta simples de sucesso
+ * - Valida os campos
+ * - Envia para a MockAPI
+ * - Atualiza a lista
  */
 async function cadastrarMaterial() {
 
@@ -107,7 +139,10 @@ async function cadastrarMaterial() {
         inputQuantidade.value = "";
 
         await carregarMateriais();
-        alert("Material inserido");
+
+        alert(
+            "Material inserido com sucesso!"
+        );
 
     }
     catch(error){
@@ -119,6 +154,27 @@ async function cadastrarMaterial() {
 
     }
 
+}
+
+/**
+ * Valida se uma retirada é permitida.
+ * Retorna true para retirada válida.
+ * Retorna false para retirada inválida.
+ */
+function validarRetirada(
+    estoqueAtual,
+    quantidadeRetirada
+) {
+
+    if (quantidadeRetirada <= 0) {
+        return false;
+    }
+
+    if (quantidadeRetirada > estoqueAtual) {
+        return false;
+    }
+
+    return true;
 }
 
 btnCadastrar.addEventListener(

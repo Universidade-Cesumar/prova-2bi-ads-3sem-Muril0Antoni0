@@ -5,11 +5,13 @@
     font-family:Arial, Helvetica, sans-serif;
 }
 
+/* Cor de fundo da página */
 body{
-    background: #e6f0ff;
+    background:#e6f0ff;
     padding:30px;
 }
 
+/* Container principal do sistema */
 .container{
     max-width:900px;
     margin:auto;
@@ -18,19 +20,79 @@ body{
     border-radius:10px;
 }
 
+/* Título principal */
+   h1{
+    text-align:center;
+    margin-bottom:20px;
+    text-shadow:2px 5px 6px rgba(0, 0, 0, 0.25);
+}
 
+/* Área do formulário de cadastro */
 .formulario{
     display:flex;
     gap:10px;
     margin-bottom:20px;
 }
 
+/* Campo de retirada de estoque */
+.retirada{
+    margin-bottom:20px;
+}
+
+/* Estilo padrão dos campos de entrada */
 input{
     flex:1;
     padding:10px;
 }
+/* Cabeçalho da tabela */
+.cabecalho-lista{
+    display:flex;
+    align-items:center;
+    padding:12px;
+    margin-bottom:10px;
+    background:#007bff;
+      text-shadow:2px 5px 6px rgba(0, 0, 0, 0.25);
+    color:white;
+    border-radius:6px;
+    font-weight:bold;
+}
 
-/* Deixa a cor do botão azul e define estilo base do botão */
+/* Coluna Material */
+.col-material{
+    flex:1;
+}
+
+/* Coluna Quantidade */
+.col-quantidade{
+    width:120px;
+    text-align:center;
+}
+
+/* Coluna Ações */
+.col-acoes{
+    width:200px;
+    text-align:center;
+}
+
+/* Nome do material */
+.material-item{
+    flex:1;
+}
+
+/* Quantidade alinhada */
+.quantidade-item{
+    width:120px;
+    text-align:center;
+}
+
+/* Área dos botões */
+.acoes-item{
+    width:200px;
+    display:flex;
+    justify-content:center;
+    gap:10px;
+}
+/* Estilo padrão dos botões */
 button{
     padding:10px 20px;
     cursor:pointer;
@@ -38,68 +100,59 @@ button{
     color:white;
     border:none;
     border-radius:6px;
-    transition:background 0.2s ease, transform 0.08s ease;
+    transition:background 0.2s ease;
 }
 
-/* efeito ao passar o mouse no botão Cadastrar */
+/* Efeito ao passar o mouse no botão cadastrar */
 #btn-cadastrar:hover{
     background:#0056b3;
-    transform:translateY(-1px);
 }
 
-table{
-    width:100%;
-    border-collapse:collapse;
-}
-
-th,
-td{
-    border:1px solid #ccc;
-    padding:10px;
-    text-align:center;
-}
-
-th{
-    background:#eee;
-}
-
-/* sombra no título da página */
-h1{
-    text-align:center;
-    margin-bottom:20px;
-    text-shadow: 2px 2px 6px rgba(0,0,0,0.15);
-}
-
-/* destaque para quantidade baixa */
-.low-qty{
-    color: #c0392b;
-    font-weight:600;
-}
-
-/* estilos para lista ordenada */
+/* Lista dos materiais cadastrados */
 .lista-materiais{
-    list-style: decimal;
-    margin-top:20px;
+    list-style:decimal;
     padding-left:20px;
 }
 
+/* Cada item da lista */
 .lista-materiais li{
     display:flex;
-    justify-content:space-between;
-    gap:10px;
-    padding:10px;
-    border:1px solid #eee;
-    border-radius:6px;
-    margin-bottom:8px;
-    background:#fbfdff;
     align-items:center;
+    gap:15px;
+    padding:10px;
+    margin-bottom:10px;
+    border:1px solid #ddd;
+    border-radius:6px;
+    background:#fbfdff;
 }
 
+/* Nome do material ocupa mais espaço */
 .lista-materiais li span:first-child{
     flex:1;
-    text-align:left;
-} 
-/*botao de retirada */
-.retirada{
-    margin-bottom:20px;
+}
+
+/* Destaque para materiais com baixo estoque */
+.low-qty{
+    color:#c0392b;
+    font-weight:bold;
+}
+
+/* Botão para realizar baixa de estoque */
+.btn-baixar{
+    background:#5175c4;
+}
+
+/* Efeito hover do botão de baixa */
+.btn-baixar:hover{
+    background:#2e4c8d;
+}
+
+/* Botão para exclusão de materiais */
+.btn-excluir{
+    background:#e74c3c;
+}
+
+/* Efeito hover do botão de exclusão */
+.btn-excluir:hover{
+    background:#c0392b;
 }
