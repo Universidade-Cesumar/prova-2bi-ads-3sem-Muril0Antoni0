@@ -16,6 +16,8 @@ document.getElementById("lista-materiais");
 const totalItens =
 document.getElementById("total-itens");
 
+const inputBusca =
+document.getElementById("input-busca");
 /**
  * Carrega os materiais da API e exibe na lista.
  * - Busca os materiais cadastrados
@@ -32,6 +34,9 @@ async function carregarMateriais() {
 
         const materiais =
         await resposta.json();
+        const busca =
+inputBusca.value
+.toLowerCase();
         totalItens.textContent =
 materiais.length;
 
@@ -42,8 +47,13 @@ materiais.length;
             (a, b) =>
             b.quantidade - a.quantidade
         );
-
-        materiais.forEach(material => {
+const materiaisFiltrados =
+materiais.filter(material =>
+    material.nome
+    .toLowerCase()
+    .includes(busca)
+);
+        materiaisFiltrados.forEach(material => {
 
             // Destaca materiais com estoque baixo
             const nomeClass =
@@ -299,5 +309,9 @@ async function baixarMaterial(
     }
 
 }
+inputBusca.addEventListener(
+    "input",
+    carregarMateriais
+);
 
 window.onload = carregarMateriais;
