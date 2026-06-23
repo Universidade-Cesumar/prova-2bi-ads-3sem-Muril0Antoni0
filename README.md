@@ -1,1 +1,56 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/72Bdl6Wn)
+Sistema web para controle de materiais de almoxarifado, desenvolvido utilizando HTML, CSS e JavaScript, com integração à MockAPI.
+
+## Funcionalidades
+
+- Cadastro de materiais
+- Listagem de materiais
+- Ordenação por quantidade
+- Baixa de estoque
+- Exclusão de materiais
+- Pesquisa de materiais
+- Dashboard com total de itens
+- Destaque para estoque baixo
+- Alerta visual para estoque crítico
+- Tratamento de erros com try/catch
+
+## Tecnologias Utilizadas
+
+- HTML5
+- CSS3
+- JavaScript
+- MockAPI
+- Git
+- GitHub
+
+## Autor
+
+Murilo Antônio# Controle de Almoxarifado
+
+## Descrição
+
+Sistema web para controle de materiais de almoxarifado, desenvolvido utilizando HTML, CSS e JavaScript, com integração à MockAPI.
+
+## Funcionalidades
+
+- Cadastro de materiais
+- Listagem de materiais
+- Ordenação por quantidade
+- Baixa de estoque
+- Exclusão de materiais
+- Pesquisa de materiais
+- Dashboard com total de itens
+- Destaque para estoque baixo
+- Alerta visual para estoque crítico
+- Tratamento de erros com try/catch
+
+## Tecnologias Utilizadas
+
+- HTML5
+- CSS3
+- JavaScript
+- MockAPI
+- Git
+- GitHub
+## Autor
+
+Murilo Antônio
