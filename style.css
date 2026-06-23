@@ -156,3 +156,7 @@ button{
 .btn-excluir:hover{
     background:#c0392b;
 }
+/* Campo de pesquisa */
+.busca{
+    margin-bottom:20px;
+}
