@@ -160,3 +160,11 @@ button{
 .busca{
     margin-bottom:20px;
 }
+/* Dashboard */
+.dashboard{
+    margin-bottom:20px;
+    padding:12px;
+    background:#f4f6fa;
+    border-radius:6px;
+    font-weight:bold;
+}

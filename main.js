@@ -13,6 +13,9 @@ document.getElementById("btn-cadastrar");
 const listaMateriais =
 document.getElementById("lista-materiais");
 
+const totalItens =
+document.getElementById("total-itens");
+
 /**
  * Carrega os materiais da API e exibe na lista.
  * - Busca os materiais cadastrados
@@ -29,6 +32,8 @@ async function carregarMateriais() {
 
         const materiais =
         await resposta.json();
+        totalItens.textContent =
+materiais.length;
 
         listaMateriais.innerHTML = "";
 
