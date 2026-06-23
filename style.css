@@ -168,3 +168,8 @@ button{
     border-radius:6px;
     font-weight:bold;
 }
+/* Estoque crítico */
+.estoque-critico{
+    background:#ffd6d6;
+    border:2px solid #e74c3c !important;
+}

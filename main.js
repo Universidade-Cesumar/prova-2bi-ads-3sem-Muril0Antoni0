@@ -50,10 +50,14 @@ materiais.length;
             material.quantidade < 100
             ? "low-qty"
             : "";
+const estoqueCritico =
+material.quantidade < 10
+? "estoque-critico"
+: "";
 
             // Cria dinamicamente os botões de baixa e exclusão
             listaMateriais.innerHTML += `
-    <li>
+    <li class="${estoqueCritico}">
 
         <span class="${nomeClass} material-item">
             ${material.nome}
